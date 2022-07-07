@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="beer"
+            type="com.example.rawfishtest.network.BeerModel" />
+
+        <!--        <variable-->
+        <!--            name="clickListener"-->
+        <!--            type="com.example.rawfishtest.overview.BeerListener" />-->
+
+    </data>
+
+    <!--Layout to display both the picture and the text,
+        one above the other-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/list_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:backgroundTintMode="src_atop"
+            android:scaleType="centerCrop"
+            app:cardElevation="8dp"
+            app:contentPadding="8dp">
+            <!--            android:onClick="@{()-> clickListener.onCLick(beer)}"-->
+            <!--the beer's picture-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/beer_pic"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:importantForAccessibility="no"
+                    android:scaleType="fitCenter"
+                    android:src="@mipmap/ic_launcher"
+                    app:imageUrl="@{beer.imageUrl}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/beer_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:fontFamily="@font/amaranth_bold"
+                    android:padding="4dp"
+                    android:text="@{beer.name}"
+                    android:textAlignment="center"
+                    android:textAllCaps="true"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/beer_pic"
+                    tools:text="Placeholder name" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--the beer's name-->
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+</layout>
