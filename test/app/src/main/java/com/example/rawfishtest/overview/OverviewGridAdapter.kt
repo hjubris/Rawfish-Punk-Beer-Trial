@@ -9,18 +9,19 @@ import com.example.rawfishtest.databinding.GridViewItemBinding
 import com.example.rawfishtest.network.BeerModel
 
 class BeerGridAdapter
-    //(val clickListener: BeerListener)
-    :ListAdapter<BeerModel, BeerGridAdapter.BeerViewHolder>(DiffCallBack) {
+//    private val clickListener: BeerListener
+    : ListAdapter<BeerModel, BeerGridAdapter.BeerViewHolder>(DiffCallBack) {
 
     //Connects our code to layout files, so that the latter can access info about the item to be displayed
     class BeerViewHolder(private var binding: GridViewItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(
-            //clickListener: BeerListener,
-            beerModel: BeerModel) {
+            beerModel: BeerModel
+//          clickListener: BeerListener,
+        ) {
             binding.beer = beerModel
-            //binding.clickListener = clickListener
             binding.executePendingBindings()
+//          binding.clickListener = clickListener
         }
     }
 
@@ -35,8 +36,8 @@ class BeerGridAdapter
     override fun onBindViewHolder(holder: BeerViewHolder, position: Int) {
         val beer = getItem(position)
         holder.bind(beer)
-           // clickListener,
-        }
+//        holder.bind(clickListener, beer)
+    }
 
     //Checks which items in the list change, so that only those are updated in the view, and not the whole list
     companion object DiffCallBack : DiffUtil.ItemCallback<BeerModel>() {
@@ -49,9 +50,9 @@ class BeerGridAdapter
         }
     }
 }
-
-//function to send to the detail view,
-//also used in the layout to make the card a clickable button
+/**
+ * This class would be used in grid_view_item.xml, to make items clickable and to send that item to fragment_detail_view.xml
+ */
 //class BeerListener(val clickListener: (beer: BeerModel) -> Unit) {
-//    fun onCLick(beer: BeerModel) = clickListener(beer)
+//    fun onClick(beer: BeerModel) = clickListener(beer)
 //}

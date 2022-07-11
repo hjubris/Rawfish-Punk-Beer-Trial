@@ -16,7 +16,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-       // val binding = ActivityMainBinding.inflate(layoutInflater)
-       // setContentView(binding.root)
+        /**
+         * This should set a navHostFragment for the app, as shown in the tutorials on android.developer
+         * for some reason it breaks the app and makes it crash on start
+         */
+//        val navHostFragment =
+//            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+//        navController = navHostFragment.navController
+//        setupActionBarWithNavController(this, navController)
+
+        setSupportActionBar(findViewById(R.id.my_action_bar))
     }
 }

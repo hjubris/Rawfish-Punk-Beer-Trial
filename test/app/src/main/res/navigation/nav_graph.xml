@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/overviewFragment">
+
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="com.example.rawfishtest.overview.OverviewFragment"
+        android:label="@string/app_name">
+        <action
+            android:id="@+id/action_overviewFragment_to_detailView"
+            app:destination="@id/detailViewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailViewFragment"
+        android:name="com.example.rawfishtest.detail.DetailViewFragment"
+        android:label="fragment_detail_view"
+        tools:layout="@layout/fragment_detail_view">
+        <argument
+            android:name="beer"
+            app:argType="com.example.rawfishtest.network.BeerModel" />
+    </fragment>
+</navigation>

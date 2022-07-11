@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.fragment.app.FragmentContainerView xmlns:android="http://schemas.android.com/apk/res/android"
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/overview_fragment"
-    android:name="com.example.rawfishtest.overview.OverviewFragment"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:layout="@layout/fragment_overview"
-    />
-<!--    app:defaultNavHost="true"-->
-<!--    app:navGraph="@navigation/nav_graph"-->
+    android:orientation="vertical"
+    android:theme="@style/Theme.Design.Light"
+    tools:context=".MainActivity">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_action_bar"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="#E1E1E1"
+        android:backgroundTintMode="screen"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        app:logo="@drawable/brewdog_logo_h" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/nav_host_fragment"
+        android:name="com.example.rawfishtest.overview.OverviewFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#E1E1E1"
+        app:defaultNavHost="true"/>
+<!--        app:navGraph="@navigation/nav_graph" -->
+
+
+</LinearLayout>

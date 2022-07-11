@@ -24,7 +24,6 @@ data class BeerModel(
     @Json(name = "food_pairing") val foodPairing: List<String>,
     @Json(name = "brewers_tips") val brewerTips: String,
     @Json(name = "contributed_by") val contributedBy: String,
-    //the url to the specific beer, needed for the AreContentsTheSame check in OverviewViewModel
 )
 
 //region Brewing method classes
